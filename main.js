@@ -180,6 +180,9 @@ function updateVisualSphere(sphere) {
 }
 
 function updatePointColors(P, R, currentP) {
+    let bPoints = R.map(p => `(${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)})`);
+    document.getElementById('status-boundary').innerText = bPoints.length > 0 ? bPoints.join('\n') : "None";
+
     for (let i = 0; i < points.length; i++) {
         let p = points[i];
         let mesh = pointMeshes[i];
@@ -270,13 +273,16 @@ function computeFinalSphere() {
     updateVisualSphere(finalSphere);
     updatePointColors(points, [], null);
     
+    let boundaryList = [];
     for (let i = 0; i < points.length; i++) {
         let p = points[i];
         if (Math.abs(finalSphere.c.distanceTo(p) - finalSphere.r) < 1e-4) {
             pointMeshes[i].material = boundaryMat;
             pointMeshes[i].scale.set(1.2, 1.2, 1.2);
+            boundaryList.push(`(${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)})`);
         }
     }
+    document.getElementById('status-boundary').innerText = boundaryList.length > 0 ? boundaryList.join('\n') : "None";
     
     statusText.innerText = "Points Generated";
     statusText.style.color = "var(--success)";
@@ -391,13 +397,16 @@ btnVisualize.addEventListener('click', async () => {
         if (!isRunning) return; // If stopped by generating new points
         updatePointColors(points, [], null); 
         
+        let boundaryList = [];
         for (let i = 0; i < points.length; i++) {
             let p = points[i];
             if (Math.abs(finalSphere.c.distanceTo(p) - finalSphere.r) < 1e-4) {
                 pointMeshes[i].material = boundaryMat;
                 pointMeshes[i].scale.set(1.2, 1.2, 1.2);
+                boundaryList.push(`(${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)})`);
             }
         }
+        document.getElementById('status-boundary').innerText = boundaryList.length > 0 ? boundaryList.join('\n') : "None";
         
         statusText.innerText = "Visualization Complete!";
         statusText.style.color = "var(--success)";
