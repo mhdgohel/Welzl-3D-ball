@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welzl's Algorithm 3D Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div id="ui-container">
+        <h1>Welzl's 3D Visualization</h1>
+        <p>Minimum Enclosing Ball</p>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="numPoints">Number of Points:</label>
+                <input type="number" id="numPoints" min="1" max="5000" value="15">
+            </div>
+            
+            <button id="btnGenerate" class="primary-btn">Generate New Points</button>
+            <button id="btnVisualize" class="success-btn" style="background-color: #8b5cf6;">Visualize Evolution</button>
+            <button id="btnReset" class="danger-btn">Reset View</button>
+        </div>
+        
+        <div id="status-panel">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span id="status-text">Idle</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Current Sphere Radius:</span>
+                <span id="status-radius">0.00</span>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item"><span class="color-box pt-normal"></span> Normal Points</div>
+            <div class="legend-item"><span class="color-box pt-boundary"></span> Boundary Points (R)</div>
+            <div class="legend-item"><span class="color-box pt-current"></span> Currently Testing</div>
+            <div class="legend-item"><span class="color-box sphere-vol"></span> Bounding Sphere</div>
+        </div>
+    </div>
+    
+    <div id="canvas-container"></div>
+
+    <!-- ES Module Import map for Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
