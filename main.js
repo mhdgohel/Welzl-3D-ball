@@ -160,6 +160,7 @@ function updateVisualSphere(sphere) {
     }
     
     document.getElementById('status-radius').innerText = sphere.r.toFixed(2);
+    document.getElementById('status-center').innerText = `(${sphere.c.x.toFixed(2)}, ${sphere.c.y.toFixed(2)}, ${sphere.c.z.toFixed(2)})`;
     
     if (sphere.r === 0) return;
 
@@ -295,6 +296,7 @@ function generatePoints(count) {
     if (currentSphereMesh) scene.remove(currentSphereMesh);
     currentSphereMesh = null;
     document.getElementById('status-radius').innerText = "0.00";
+    document.getElementById('status-center').innerText = "(0.00, 0.00, 0.00)";
 
     btnVisualize.disabled = false;
     btnVisualize.innerText = "Visualize Evolution";
@@ -389,6 +391,7 @@ btnVisualize.addEventListener('click', async () => {
         scene.remove(currentSphereMesh);
         currentSphereMesh = null;
         document.getElementById('status-radius').innerText = "0.00";
+        document.getElementById('status-center').innerText = "(0.00, 0.00, 0.00)";
     }
 
     let P_copy = [...points];

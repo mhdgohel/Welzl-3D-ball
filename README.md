@@ -6,9 +6,12 @@ An interactive, high-performance 3D visualization of **Welzl's Algorithm** for c
 
 This project features a completely vanilla JavaScript implementation of Welzl's elegant randomized geometric algorithm, rendered with stunning clarity using Three.js.
 
+## Website
+[Launch the visualization](https://mhdgohel.github.io/Welzl-3D-ball/)
+
 ## Features
 
-- **Blazing Fast `O(n)` Computation:** Mathematically accurate vector operations handle sets up to 5,000+ points practically instantaneously using a completely iterative-fallback strategy.
+- **O(n) Computation:** Accurate vector operations handle sets up to 5,000+ points practically instantaneously using a completely iterative-fallback strategy.
 - **Real-Time Algorithm Evolution:** Instead of just spitting out the answer, click **"Visualize Evolution"** to watch the recursive divide-and-conquer steps dynamically update point states and spheres right before your eyes.
 - **Dynamic Math Feed:** Track the exact real-time boundary coordinates and radius as the algorithm converges on the mathematical optimal bounding volume.
 
