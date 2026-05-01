@@ -2,8 +2,6 @@
 
 An interactive, high-performance 3D visualization of **Welzl's Algorithm** for computing the Minimum Bounding Sphere (Minimum Enclosing Ball) of a set of 3D points. 
 
-![Algorithm in action]
-
 This project features a completely vanilla JavaScript implementation of Welzl's elegant randomized geometric algorithm, rendered with stunning clarity using Three.js.
 
 ## Website
